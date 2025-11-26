@@ -1,0 +1,58 @@
+ 
+.marqueeGrid {
+  transform: rotateX(55deg) rotateY(0deg) rotateZ(-45deg);
+  transform-style: preserve-3d;
+}
+
+.gridLineVertical {
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2) 50%, transparent 0, transparent);
+  background-size: 1px 5px;
+  mask: linear-gradient(to top, #ffffff 90%, transparent), 
+        linear-gradient(to bottom, #ffffff 90%, transparent), 
+        linear-gradient(black, black);
+  mask-composite: exclude;
+}
+
+.gridLineHorizontal {
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) 50%, transparent 0, transparent);
+  background-size: 5px 1px;
+  mask: linear-gradient(to left, #ffffff 90%, transparent), 
+        linear-gradient(to right, #ffffff 90%, transparent), 
+        linear-gradient(black, black);
+  mask-composite: exclude;
+}
+
+@media (prefers-color-scheme: dark) {
+  .gridLineVertical {
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2) 50%, transparent 0, transparent);
+  }
+  .gridLineHorizontal {
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2) 50%, transparent 0, transparent);
+  }
+}
+
+/* animations */
+@keyframes moveDown {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(0); }
+  50% { transform: translateY(100px); }
+}
+
+@keyframes moveUp {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(0); }
+  50% { transform: translateY(-100px); }
+}
+
+.animateDown {
+  animation: moveDown 10s ease-in-out infinite;
+}
+
+.animateUp {
+  animation: moveUp 15s ease-in-out infinite;
+}
+  
+.wrapper:hover .animateDown,
+.wrapper:hover .animateUp {
+  animation-play-state: paused;
+}
