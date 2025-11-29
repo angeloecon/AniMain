@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-export function useJikan(endpoint, delay = 0) {
+export function useJikan(endpoint, delay = 0, page = 1) {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -20,7 +20,7 @@ export function useJikan(endpoint, delay = 0) {
 
         if (!isMounted) return;
 
-        const res = await fetch(`/api/jikan${endpoint}`);
+        const res = await fetch(`/api/jikan${endpoint}?&page=${page}`);
 
         if (!res.ok) {
           throw new Error(`Error: ${res.status}`);
@@ -52,7 +52,7 @@ export function useJikan(endpoint, delay = 0) {
     return () => {
       isMounted = false;
     };
-  }, [endpoint, delay]);
+  }, [endpoint, delay, page]);
 
   return { data, loading, error };
 }

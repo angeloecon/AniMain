@@ -11,7 +11,7 @@ import "swiper/css/pagination";
 import "swiper/css/parallax";
 
 const Carousel = ({ data, isLoading }) => {
-  const slicedData = data ;
+  const slicedData = data.slice(0, 5);
 
   if (isLoading) {
     return (
