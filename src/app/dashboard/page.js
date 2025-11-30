@@ -4,7 +4,7 @@ import { useAuth } from '@/context/authcontext';
 import { useRouter } from 'next/navigation';
 
 export default function DashboardPage() {
-  const { user } = useAuth();
+  const { user, isLoadingAuth } = useAuth();
   const router = useRouter();
   
   const [watchlist, setWatchlist] = useState([]);
@@ -33,6 +33,7 @@ export default function DashboardPage() {
         }
       };
   useEffect(() => {
+    if(isLoadingAuth) return
     if (user) {
       
       fetchWatchlist();
@@ -96,6 +97,7 @@ export default function DashboardPage() {
 
 
   if (isLoading) return <div className="text-center p-10">Loading Dashboard...</div>;
+  
 
   return (
     <main className="min-h-screen bg-gray-50 dark:bg-gray-600 p-8">

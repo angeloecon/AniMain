@@ -35,7 +35,7 @@ export default function HomePage() {
             <div className="text-center py-20 text-xl text-gray-500 dark:text-gray-400">
               <LoadingAnimation size={200} />
               <p className="mt-4 text-sm text-gray-400 animate-pulse">
-                Loading top charts...
+                Loading upcoming charts...
               </p>
             </div>
           ) : (
@@ -89,7 +89,7 @@ export default function HomePage() {
             <div className="text-center py-20 text-xl text-gray-500 dark:text-gray-400">
               <LoadingAnimation size={200} />
               <p className="mt-4 text-sm text-gray-400 animate-pulse">
-                Loading top charts...
+                Loading seasonal charts...
               </p>
             </div>
           ) : (

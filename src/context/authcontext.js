@@ -7,9 +7,11 @@ const AuthContext = createContext(null);
 
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(null);  
+  const [isLoadingAuth, setIsLoadingAuth] = useState(true);
 
 
   useEffect(() => {
+    setIsLoadingAuth(true)
     const storedUser = localStorage.getItem('current_logged_user');
     if(storedUser) {
       try{
@@ -17,6 +19,8 @@ export function AuthProvider({ children }) {
       } catch (error) {
         console.error("Failed to parse stored user:", error);
         localStorage.removeItem('current_logged_user');
+      } finally{
+        setIsLoadingAuth(false)
       }
     }
   }, []);
@@ -35,6 +39,7 @@ export function AuthProvider({ children }) {
     user,
     login,
     logout,
+    isLoadingAuth
   };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
