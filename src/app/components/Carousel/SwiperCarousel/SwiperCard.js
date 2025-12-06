@@ -40,7 +40,10 @@ export default function TopAnimeSlider({ animeList }) {
         freeMode={{
           enabled:true,
           minimumVelocity: 0.2,
-          momentumBounce: true
+          momentumBounce: true,
+          momentum: true,
+          momentumRatio: 3,
+          momentumBounceRatio: 3
         }}
 
         navigation={{

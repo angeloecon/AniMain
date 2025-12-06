@@ -144,6 +144,7 @@ export default function AnimeDetailPage() {
           <div className="md:w-1/3 flex flex-col items-center space-y-4">
             <Image
               width={1200}
+              loading="eager"
               height={1200}
               src={anime.images?.jpg?.large_image_url}
               alt={anime.title}

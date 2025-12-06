@@ -7,7 +7,7 @@ import Marquee from "../components/3dMarquee/3dMarquee";
 
 
 
-export default function RegisterPage(event) {
+export default function RegisterPage() {
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
@@ -15,8 +15,8 @@ export default function RegisterPage(event) {
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
 
-  const handleSubmit = async () => {
-    event.preventDefault();
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     setIsLoading(true);
     setError(null);
     try {

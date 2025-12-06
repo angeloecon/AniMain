@@ -22,54 +22,53 @@ export default function SearchResultsPage() {
   const fetchResults = async () => {
     setIsLoading(true);
     try {
-      const data = await (await fetch(`/api/jikan/search?q=${query}&page=${page}`)).json();
+      const data = await (
+        await fetch(`/api/jikan/search?q=${query}&page=${page}`)
+      ).json();
       setAnimeList(Array.isArray(data) ? data : []);
     } catch (err) {
       console.error(err);
     } finally {
       setIsLoading(false);
-      
     }
   };
-//animeList.length <= 24?  setNextButton(false) : setNextButton(true)
+  //animeList.length <= 24?  setNextButton(false) : setNextButton(true)
   const handlePageChange = (newPage) => {
     if (newPage < 1) return;
-    
+
     setPage(newPage);
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  useEffect(() => {
-
-  }, [])
+  useEffect(() => {}, []);
 
   useEffect(() => {
     if (!query) return;
-    
+
     fetchResults();
   }, [query, page]);
 
-  const handleSearch = (e) => {
-    e.preventDefault();
-    if (!search.trim()) return;
-    router.push(`/search?q=${search}&page=1`);
-  };
+  // const handleSearch = (e) => {
+  //   e.preventDefault();
+  //   if (!search.trim()) return;
+  //   router.push(`/search?q=${search}&page=1`);
+  // };
 
   return (
-    <main className="min-h-screen bg-gray-50 ">
+    <main className="min-h-screen bg-gray-50 dark:bg-gray-600 ">
       <div className="max-w-7xl mx-auto p-4 md:p-8">
         <div className="flex flex-col md:flex-row justify-between items-center mb-8 gap-4">
           <h1 className="text-3xl font-extrabold text-gray-900">
             Results for "{query}"
           </h1>
 
-          <form onSubmit={handleSearch} className="flex gap-2 w-full md:w-auto">
+          {/* <form onSubmit={handleSearch} className="flex gap-2 w-full md:w-auto">
             <input
               type="text"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               placeholder="Search anime..."
-              className="text-black px-4 py-2 border border-gray-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 w-full md:w-64"
+              className="text-black dark:text-gray-200 px-4 py-2 border border-gray-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 w-full md:w-64"
             />
             <button
               type="submit"
@@ -77,14 +76,16 @@ export default function SearchResultsPage() {
             >
               Search
             </button>
-          </form>
+          </form> */}
         </div>
 
         {isLoading ? (
-          <div className="text-center py-20 text-xl text-gray-500">
+          <div className="text-center py-20 text-xl  bg-gray-50 dark:bg-gray-600 ">
             <div>
               <LoadingIndicator size={200} />
-              <p className="text-black">Searching for "{query}"...</p>
+              <p className="dark:text-gray-200 text-gray-500">
+                Searching for "{query}"...
+              </p>
             </div>
           </div>
         ) : (
@@ -106,7 +107,7 @@ export default function SearchResultsPage() {
                 <button
                   onClick={() => handlePageChange(page - 1)}
                   disabled={page === 1}
-                  className="px-4 py-2 bg-white border border-gray-300 rounded-md text-gray-700 hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed font-medium"
+                  className="px-4 py-2 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-md text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 font-medium"
                 >
                   {page - 1}
                 </button>
@@ -120,7 +121,7 @@ export default function SearchResultsPage() {
                 <button
                   onClick={() => handlePageChange(page + 1)}
                   disabled={animeList.length === 0}
-                  className="px-4 py-2 bg-white border border-gray-300 rounded-md text-gray-700 hover:bg-gray-100 font-medium"
+                  className="px-4 py-2 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-md text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700 font-medium"
                 >
                   {page + 1}
                 </button>
