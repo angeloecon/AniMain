@@ -8,7 +8,7 @@ import React from "react";
 
 const notFoundPage = () => {
   return (
-    <div className="flex flex-col items-center justify-between w-full h-screen bg-white text-white">
+    <div className="flex flex-col items-center justify-between w-full h-screen bg-white text-white dark:bg-gray-600">
       <div className="flex flex-col items-center mt-20 md:mt-32">
         <h1
           className="
@@ -17,6 +17,7 @@ const notFoundPage = () => {
           text-red-500 
           mb-6    
           whitespace-nowrap
+          font-anime
         "
         >
           404 NOT FOUND

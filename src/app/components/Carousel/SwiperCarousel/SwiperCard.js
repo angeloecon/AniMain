@@ -66,7 +66,7 @@ export default function TopAnimeSlider({ animeList }) {
                 <Card
                   title={anime.title}
                   content={anime.title_japanese || anime.title_english || ""}
-                  image={anime.images.jpg.large_image_url}
+                  image={anime.images.webp.large_image_url}
                 />
               </div>
             </Link>

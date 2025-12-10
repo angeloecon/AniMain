@@ -160,7 +160,7 @@ export default function AnimeDetailPage() {
               width={1200}
               loading="eager"
               height={1200}
-              src={anime.images?.jpg?.large_image_url}
+              src={anime.images?.webp?.large_image_url}
               alt={anime.title}
               blurDataURL="data:image/jpeg;base64,..."
               className="w-full max-w-xs rounded-lg shadow-lg object-cover"
