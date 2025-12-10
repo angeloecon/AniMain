@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import { useAuth } from "@/context/authcontext";
 import { useRouter } from "next/navigation";
+import StatsChart from '../components/StatsChart/StatsChart';
 
 export default function DashboardPage() {
   const { user, isLoadingAuth } = useAuth();
@@ -135,6 +136,8 @@ export default function DashboardPage() {
           </button>
         </div>
 
+        <StatsChart watchlist={watchlist} />
+
         <div className="flex space-x-2 mb-6 overflow-x-auto pb-2 ">
           {["All", "Watching", "Completed", "Plan to Watch", "Dropped"].map(
             (status) => (
@@ -177,7 +180,7 @@ export default function DashboardPage() {
                           <select
                             value={newStatus}
                             onChange={(e) => setNewStatus(e.target.value)}
-                            className="px-3 py-1 border border-gray-300 rounded-md text-sm"
+                            className="px-3 py-1 border border-gray-700 dark:border-gray-200 bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-200 rounded-md text-sm"
                           >
                             <option value="Plan to Watch">Plan to Watch</option>
                             <option value="Watching">Watching</option>

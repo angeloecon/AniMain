@@ -108,8 +108,10 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
  ┃ ┃ ┃ ┗ 📜Footer.js
  ┃ ┃ ┣ 📂LoadingAnim            # Loading Animation
  ┃ ┃ ┃ ┗ 📜loadingIndicator.js
- ┃ ┃ ┗ 📂NavBar                 # Navigation Bar
+ ┃ ┃ ┃ 📂NavBar                 # Navigation Bar
  ┃ ┃ ┃ ┗ 📜navbar.js
+ ┃ ┃ ┗ 📂StatsChart             # User Graph Statistic
+ ┃ ┃ ┃ ┗ 📜StatsChart.js
  ┃ ┣ 📂dashboard                # User Watchlist Page
  ┃ ┃ ┗ 📜page.js
  ┃ ┣ 📂fonts                    # Custom font files
