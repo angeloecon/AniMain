@@ -2,9 +2,8 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import logoName from "../../../../public/images/logo_light.png";
-import darkLogoName from "../../../../public/images/logo_dark.png";
-import iconmain from '../../../../public/images/ic_main.png'
+import logoName from "../../../public/images/logo_light.png";
+import darkLogoName from "../../../public/images/logo_dark.png";
 import { useAuth } from "@/context/authcontext";
 import { useTheme } from "@/context/themeContext";
  

@@ -2,10 +2,9 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import Marquee from "../components/3dMarquee/3dMarquee";
- 
-
-
+import Marquee from "../../components/3dMarquee/3dMarquee";
+import Image from "next/image";
+import Logo from "../../../public/images/ic_main.png";
 
 export default function RegisterPage() {
   const [email, setEmail] = useState("");
@@ -45,9 +44,15 @@ export default function RegisterPage() {
 
   return (
     <Marquee>
-      <main >
-        <div className="w-full max-w-md p-8 space-y-6 bg-white/30 backdrop-blur-lg border border-black/20 shadow-2xl rounded-lg shadow-md">
-          <h1 className={`font-anime text-2xl font-bold text-center text-black`}>
+      <main>
+        <div className="w-full max-w-md p-8 space-y-6 bg-white/70 backdrop-blur-lg border border-black/20 shadow-2xl rounded-lg shadow-md">
+          <div className="w-full flex justify-center">
+            <Image src={Logo} alt="onlyWeebs Logo" width={100} />
+          </div>
+
+          <h1
+            className={`font-anime text-2xl font-bold text-center text-black`}
+          >
             Register
           </h1>
 
@@ -65,7 +70,7 @@ export default function RegisterPage() {
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 required
-              className="w-full px-3 py-2 mt-1 border border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-800 text-black focus:bg-white/30 backdrop-blur-lg shadow-2xl"
+                className="w-full px-3 py-2 mt-1 border border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-800 text-black focus:bg-white/30 backdrop-blur-lg shadow-2xl"
                 autoComplete="name"
               />
             </div>
@@ -83,7 +88,7 @@ export default function RegisterPage() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
-              className="w-full px-3 py-2 mt-1 border border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-800 text-black focus:bg-white/30 backdrop-blur-lg shadow-2xl"
+                className="w-full px-3 py-2 mt-1 border border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-800 text-black focus:bg-white/30 backdrop-blur-lg shadow-2xl"
                 autoComplete="email"
               />
             </div>
@@ -101,7 +106,7 @@ export default function RegisterPage() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
-              className="w-full px-3 py-2 mt-1 border border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-800 text-black focus:bg-white/30 backdrop-blur-lg shadow-2xl"
+                className="w-full px-3 py-2 mt-1 border border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-800 text-black focus:bg-white/30 backdrop-blur-lg shadow-2xl"
                 autoComplete="current-password"
               />
             </div>

@@ -3,7 +3,9 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/context/authcontext";
-import Marquee from "../components/3dMarquee/3dMarquee";
+import Marquee from "../../components/3dMarquee/3dMarquee";
+import Logo from "../../../public/images/ic_main.png";
+import Image from "next/image";
 
 import Link from "next/link";
 
@@ -51,7 +53,10 @@ export default function LoginPage() {
   return (
     <Marquee>
       <main>
-        <div className="w-full max-w-md p-8 space-y-6 bg-white/30 backdrop-blur-lg border border-black/20 shadow-2xl rounded-lg shadow-md">
+        <div className="w-full max-w-md p-8 space-y-6 bg-white/70 backdrop-blur-lg border border-black/20 shadow-2xl rounded-lg shadow-md">
+          <div className="w-full flex justify-center">
+            <Image src={Logo} alt="onlyWeebs Logo" width={100} />
+          </div>
           <h1
             className={`font-anime text-2xl font-bold text-center text-gray-900`}
           >

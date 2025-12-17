@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import { useAuth } from "@/context/authcontext";
 import { useRouter } from "next/navigation";
-import StatsChart from '../components/StatsChart/StatsChart';
+import StatsChart from '../../components/StatsChart/StatsChart';
 
 export default function DashboardPage() {
   const { user, isLoadingAuth } = useAuth();

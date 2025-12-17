@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { useAuth } from "@/context/authcontext";
 import { useSearchParams, usePathname, useRouter } from "next/navigation";
-import LoadingAnimation from "../components/LoadingAnim/loadingIndicator";
+import LoadingAnimation from "../../components/LoadingAnim/loadingIndicator";
 import ReactPlayer from "react-player";
 import Link from "next/link";
 import Image from "next/image";

@@ -1,7 +1,7 @@
 "use client";
 
 import Lottie from "lottie-react";
-import LOTTIE_URL from "../../../../public/animations/loadingAnimation.json";
+import LOTTIE_URL from "../../../public/animations/loadingAnimation.json";
 
 
 const defaultStyles = {

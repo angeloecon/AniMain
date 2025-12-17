@@ -3,8 +3,8 @@ import { useAuth } from "@/context/authcontext";
 import { useTheme } from "@/context/themeContext";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import darkLogoName from "../../../../public/images/logo_dark.png";
-import logoName from "../../../../public/images/logo_light.png";
+import darkLogoName from "../../../public/images/logo_dark.png";
+import logoName from "../../../public/images/logo_light.png";
 import Image from "next/image";
 import Link from "next/link";
 

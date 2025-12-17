@@ -3,8 +3,8 @@
 import { useState, useEffect, use } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
-import LoadingAnimation from "@/app/components/LoadingAnim/loadingIndicator";
-import ParallaxCard from "@/app/components/Card/ParallaxCard/ParallaxCard";
+import LoadingAnimation from "@/components/LoadingAnim/loadingIndicator";
+import ParallaxCard from "@/components/Card/ParallaxCard/ParallaxCard";
 
 const CATEGORY_CONFIG = {
   top: {

@@ -6,8 +6,8 @@ import { useSearchParams, useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
 import Link from "next/link";
 
-import LoadingIndicator from "@/app/components/LoadingAnim/loadingIndicator";
-import ParallaxCard from "@/app/components/Card/ParallaxCard/ParallaxCard";
+import LoadingIndicator from "@/components/LoadingAnim/loadingIndicator";
+import ParallaxCard from "@/components/Card/ParallaxCard/ParallaxCard";
 
 export default function SearchResultsPage() {
   const searchParams = useSearchParams();
