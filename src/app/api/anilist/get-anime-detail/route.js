@@ -13,7 +13,7 @@ export async function GET(request) {
   }
 
   const query = `
-    query($id: Int){
+    query($id: Int, $perPage: Int){
       Media(id: $id, type: ANIME) {
         id
         title{
@@ -33,7 +33,7 @@ export async function GET(request) {
             name
           }
         }
-        characters(sort: ROLE, perPage: 6) {
+        characters(sort: ROLE) {
           edges{ 
             role
             node {
@@ -57,19 +57,35 @@ export async function GET(request) {
         seasonYear
         type
         source
+        recommendations(perPage: $perPage, sort: RATING_DESC) {
+          nodes {
+            mediaRecommendation {
+              id
+              title {
+                english
+                native
+                romaji
+              }
+              coverImage {
+                large
+                medium
+              }
+            }
+          }
+        }
       }
     }
   `;
 
   try {
-    const variables = { 
-      id: parseInt(id) 
+    const variables = {
+      id: parseInt(id),
+      perPage: 6
     };
     const data = await fetchAniList(query, variables);
-    return NextResponse.json({data: data.Media}, {status: 200});
-
+    return NextResponse.json({ data: data.Media }, { status: 200 });
   } catch (err) {
     console.error("Failed to fetch anime details", err);
-    return NextResponse.json({ err: err.message}, {status:500 })
+    return NextResponse.json({ err: err.message }, { status: 500 });
   }
 }

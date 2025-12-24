@@ -22,7 +22,7 @@ export default function StatsChart({ watchlist }) {
       <div className="flex flex-col md:flex-row items-center justify-center gap-8">
 
         <div className="h-64 w-full md:w-1/2 relative">
-            <ResponsiveContainer width="100%" height="100%">
+            <ResponsiveContainer width="100%" height="100%" minWidth={0}>
             <PieChart>
                 <Pie
                 data={data}
@@ -65,7 +65,6 @@ export default function StatsChart({ watchlist }) {
                 </p>
             </div>
         </div>
-
       </div>
     </div>
   );

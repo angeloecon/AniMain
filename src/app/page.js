@@ -4,7 +4,7 @@ import { useAniList } from "@/hooks/useAnime";
 import { useEffect, useState } from "react";
 
 import Link from "next/link";
-import LoadingAnimation from "../components/LoadingAnim/loadingIndicator";
+import LoadingAnimation from "../components/Loading/loadingIndicator";
 import Carousel from "../components/Carousel/HeroCarousel/Carousel";
 import SwiperCard from "../components/Carousel/SwiperCarousel/SwiperCard";
 

@@ -1,6 +1,6 @@
 import { Geist, Geist_Mono } from "next/font/google";
-import { AuthProvider } from "@/context/authcontext";
 import { ThemeProvider } from "@/context/themeContext";
+import { FirebaseAuthProvider } from "@/context/authContext";
 import Navbar from "../components/NavBar/navbar";
 import localFont from "next/font/local";
 import "./globals.css";
@@ -33,13 +33,13 @@ export default function RootLayout({ children }) {
       <body
         className={`${animeFonts.variable} ${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <AuthProvider>
+        <FirebaseAuthProvider>
           <ThemeProvider>
             <Navbar />
             {children}
             <Footer />
           </ThemeProvider>
-        </AuthProvider>
+        </FirebaseAuthProvider>
       </body>
     </html>
   );

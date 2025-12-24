@@ -1,5 +1,5 @@
 "use client";
-import { useAuth } from "@/context/authcontext";
+import { useAuth } from "@/context/authContext";
 import { useTheme } from "@/context/themeContext";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -9,11 +9,12 @@ import Image from "next/image";
 import Link from "next/link";
 
 export default function Navbar() {
-  const { theme, toggleTheme } = useTheme()
-  const { user, logout } = useAuth();
-  const router = useRouter();
-  const [isOpen, setIsOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
+  const [isOpen, setIsOpen] = useState(false);
+
+  const { theme, toggleTheme } = useTheme()
+  const { user, signout } = useAuth();
+  const router = useRouter();
 
   const handleSearch = (e) => {
     e.preventDefault();
@@ -23,7 +24,7 @@ export default function Navbar() {
   };
 
   const handleLogout = () => {
-    logout();
+    signout();
     setIsOpen(false);
     router.push("/login");
   };
@@ -92,10 +93,20 @@ export default function Navbar() {
                   href="/dashboard"
                   className="text-gray-700 dark:text-gray-200 hover:text-blue-600 font-medium"
                 >
-                  Dashboard
+                  <svg 
+  xmlns="http://www.w3.org/2000/svg" 
+  fill="none" 
+  viewBox="0 0 24 24" 
+  strokeWidth={1.5} 
+  stroke="currentColor" 
+  className="w-6 h-6"
+>
+  <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 6a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0zm0 6a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0zm0 6a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0zM5.25 6a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0zm0 6a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0zm0 6a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0zM15.75 6a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0zm0 6a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0zm0 6a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0z" />
+  {/* Alternatively, use this path for a rectangular bento look: */}
+  {/* <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6zM3.75 15.75A2.25 2.25 0 016 13.5h2.25a2.25 2.25 0 012.25 2.25V18a2.25 2.25 0 01-2.25 2.25H6A2.25 2.25 0 013.75 18v-2.25zM13.5 6a2.25 2.25 0 012.25-2.25H18A2.25 2.25 0 0120.25 6v12A2.25 2.25 0 0118 20.25h-2.25A2.25 2.25 0 0113.5 18V6z" /> */}
+</svg>
                 </Link>
                 <div className="flex items-center space-x-3 pl-4 border-l border-gray-300">
-                  <span className="text-sm text-gray-500">{user.email}</span>
                   <button
                     onClick={handleLogout}
                     className="bg-red-50 text-red-600 px-3 py-1 rounded-md text-sm font-medium hover:bg-red-100 transition-colors"

@@ -4,10 +4,10 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'cdn.myanimelist.net',  
-        port: '',
-        pathname: '/images/**',  
-      },
+        hostname: 's4.anilist.co',
+        port:'',
+        pathname: '/file/anilistcdn/**'
+      }
     ],
   },
 };

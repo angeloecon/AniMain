@@ -4,7 +4,7 @@ import { useSearchParams, useRouter } from "next/navigation";
 import { useAnimeSearch } from "@/hooks/useAnime";
 
 import Link from "next/link";
-import LoadingIndicator from "@/components/LoadingAnim/loadingIndicator";
+import LoadingIndicator from "@/components/Loading/loadingIndicator";
 import ParallaxCard from "@/components/Card/ParallaxCard/ParallaxCard";
 
 export default function SearchResultsPage() {

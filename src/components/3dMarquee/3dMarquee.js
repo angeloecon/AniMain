@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import styles from "./3dMarquee.module.css";
-import LoadingAnim from "../LoadingAnim/loadingIndicator";
+import LoadingAnim from "../Loading/loadingIndicator";
 import { useAniList } from "@/hooks/useAnime";
 
 export default function Marquee3D({ children }) {

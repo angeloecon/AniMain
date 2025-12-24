@@ -3,7 +3,7 @@
 import { useState, useEffect, use } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
-import LoadingAnimation from "@/components/LoadingAnim/loadingIndicator";
+import LoadingAnimation from "@/components/Loading/loadingIndicator";
 import ParallaxCard from "@/components/Card/ParallaxCard/ParallaxCard";
 
 import { useAniList } from "@/hooks/useAnime";

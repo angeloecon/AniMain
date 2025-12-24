@@ -1,6 +1,6 @@
 "use client";
 
-import LoadingIndicator from "../../LoadingAnim/loadingIndicator";
+import LoadingIndicator from "../../Loading/loadingIndicator";
 import Link from "next/link";
 
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -35,7 +35,7 @@ const Carousel = ({ data, isLoading }) => {
       loop={true}
       parallax={true}
       speed={2500}
-      className={`h-[90vh] md:h-[700px]`}
+      className={`h-[50vh] lg:h-[70vh]`}
     >
       {data.map((value, index) => {
         return (
