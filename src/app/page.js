@@ -4,14 +4,17 @@ import { useAniList } from "@/hooks/useAnime";
 import { useEffect, useState } from "react";
 
 import Link from "next/link";
-import LoadingAnimation from "../components/Loading/loadingIndicator";
+import LoadingAnimation from "../components/UI/LoadingState/LoadingAnimation";
 import Carousel from "../components/Carousel/HeroCarousel/Carousel";
 import SwiperCard from "../components/Carousel/SwiperCarousel/SwiperCard";
+import AllSectionCard from "@/components/Card/AllSectionCard";
 
-
-export default function HomePage() {
-  const { animeList: topAnime, isLoading: topAnimeLoading } =
-    useAniList("score", 1, 15);
+const HomePage = () => {
+  const { animeList: topAnime, isLoading: topAnimeLoading } = useAniList(
+    "score",
+    1,
+    15
+  );
   const { animeList: popularAnime, isLoading: popularLoading } = useAniList(
     "popular",
     1,
@@ -44,12 +47,11 @@ export default function HomePage() {
 
   return (
     <main className="min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
-      
       {/* // HERO CAROUSEL ---------------- */}
       <Carousel data={topAnime} isLoading={topAnimeLoading} />
 
       {/* // POPULAR SECTION --------------- */}
- 
+
       <section className="max-w-7xl mx-auto px-6 py-16">
         <div className="flex justify-between items-end mb-6">
           <div>
@@ -68,31 +70,15 @@ export default function HomePage() {
 
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
           {popularAnime.map((anime) => (
-            <Link key={anime.id} href={`/anime-detail/${anime.id}`} className="group">
-              <div className="relative w-full">
-                <div className="relative aspect-[2/3] overflow-hidden rounded-lg shadow-sm transition-all duration-300 group-hover:shadow-xl group-hover:-translate-y-1">
-                  <img
-                    src={anime.coverImage?.extraLarge}
-                    alt={anime.title.romaji}
-                    className="h-full w-full object-cover"
-                  />
-                  <div className={`absolute top-2 right-2 px-1.5 py-0.5 rounded text-[10px] font-bold text-white shadow-sm ${
-                      anime.averageScore >= 80 ? "bg-green-500" : "bg-yellow-500"
-                  }`}>
-                    {anime.averageScore}%
-                  </div>
-                </div>
-
-                <div className="mt-2">
-                  <h3 className="text-sm font-bold text-gray-900 dark:text-gray-100 line-clamp-1 group-hover:text-blue-500 transition-colors">
-                    {anime.title.english || anime.title.romaji}
-                  </h3>
-                  <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">
-                    {anime.season} • {anime.seasonYear || "TBA"}
-                  </p>
-                </div>
-              </div>
-            </Link>
+            <AllSectionCard 
+              key={anime.id}
+              animeId={anime.id}
+              animeImage={anime.coverImage?.extraLarge || anime.coverImage?.large || anime.coverImage?.medium}
+              animeTitle={anime.title.english || anime.title.romaji || anime.title.native}
+              animeScore={anime.averageScore}
+              animeSeason={anime.season}
+              animeYear={anime.seasonYear}
+            />
           ))}
         </div>
       </section>
@@ -100,17 +86,16 @@ export default function HomePage() {
       {/* // TRENDING SECTION -------------- */}
 
       <section className="relative w-full py-24 overflow-hidden">
-        
         <div
           className="absolute inset-0 z-0 transition-all duration-700 ease-in-out transform scale-105"
           style={{
             backgroundImage: bannerImage,
             backgroundRepeat: "no-repeat",
             backgroundSize: "cover",
-            backgroundPosition: "center 20%", 
+            backgroundPosition: "center 20%",
           }}
         />
-        
+
         <div className="absolute inset-0 z-0 bg-black/40 backdrop-blur-[2px]" />
 
         <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-gray-50 dark:from-gray-900 to-transparent z-10" />
@@ -122,10 +107,12 @@ export default function HomePage() {
         <div className="relative z-20 max-w-7xl mx-auto px-6">
           <div className="flex justify-between items-end mb-10 border-b border-white/20 pb-4">
             <div>
-               <h2 className="text-4xl font-extrabold text-white drop-shadow-md">
+              <h2 className="text-4xl font-extrabold text-white drop-shadow-md">
                 Trending Now
               </h2>
-              <p className="text-gray-200 text-sm mt-1">Buzzing in the community</p>
+              <p className="text-gray-200 text-sm mt-1">
+                Buzzing in the community
+              </p>
             </div>
 
             <Link
@@ -154,15 +141,17 @@ export default function HomePage() {
               >
                 <div className="relative aspect-[2/3] overflow-hidden rounded-xl shadow-2xl bg-gray-800 ring-2 ring-transparent group-hover:ring-white/50 transition-all duration-300 transform group-hover:-translate-y-2">
                   <img
-                    src={anime.coverImage?.extraLarge || anime.coverImage?.large}
+                    src={
+                      anime.coverImage?.extraLarge || anime.coverImage?.large
+                    }
                     alt={anime.title.romaji}
                     className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />
 
                   <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-3">
-                     <p className="text-white text-xs font-bold line-clamp-2">
-                        {anime.title.english || anime.title.romaji}
-                     </p>
+                    <p className="text-white text-xs font-bold line-clamp-2">
+                      {anime.title.english || anime.title.romaji}
+                    </p>
                   </div>
                 </div>
               </Link>
@@ -170,7 +159,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-      
 
       {/* // UPCOMING SECTION ---------------- */}
 
@@ -180,7 +168,8 @@ export default function HomePage() {
             Upcoming Anime
           </h2>
           <p className="text-gray-500 dark:text-gray-400 text-center max-w-xl">
-            Get ready for the next wave of animation. Here is what is scheduled to air soon.
+            Get ready for the next wave of animation. Here is what is scheduled
+            to air soon.
           </p>
         </div>
 
@@ -212,7 +201,8 @@ export default function HomePage() {
           </div>
         )}
       </section>
-      
     </main>
   );
-}
+};
+
+export default HomePage;

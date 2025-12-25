@@ -4,10 +4,11 @@ import { useSearchParams, useRouter } from "next/navigation";
 import { useAnimeSearch } from "@/hooks/useAnime";
 
 import Link from "next/link";
-import LoadingIndicator from "@/components/Loading/loadingIndicator";
+import LoadingIndicator from "@/components/UI/LoadingState/LoadingAnimation";
 import ParallaxCard from "@/components/Card/ParallaxCard/ParallaxCard";
-
-export default function SearchResultsPage() {
+ 
+const SearchResultPage = () => {
+  
   const searchParams = useSearchParams();
   const router = useRouter();
 
@@ -124,3 +125,5 @@ export default function SearchResultsPage() {
     </main>
   );
 }
+
+export default SearchResultPage

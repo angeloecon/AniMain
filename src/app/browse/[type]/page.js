@@ -3,12 +3,13 @@
 import { useState, useEffect, use } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
-import LoadingAnimation from "@/components/Loading/loadingIndicator";
 import ParallaxCard from "@/components/Card/ParallaxCard/ParallaxCard";
+import LoadingState from "@/components/UI/LoadingState/LoadingState";
+import ErrorState from "@/components/UI/ErrorState";
 
 import { useAniList } from "@/hooks/useAnime";
 
-export default function BrowsePage({ params }) {
+const BrowsePage = ({params}) => {
   const { type } = use(params);
 
   const categoryType = type;
@@ -29,16 +30,8 @@ export default function BrowsePage({ params }) {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  if (animeLoading) {
-    return (
-      <main className="h-screen bg-gray-50 dark:bg-gray-600 flex justify-center flex-col items-center">
-        <LoadingAnimation size={150} />
-        <p className="mt-1 text-sm text-gray-400 animate-pulse">
-          Loading anime...
-        </p>
-      </main>
-    );
-  }
+  if (animeLoading) return <LoadingState message="Loading..."/>
+  
 
   if (!categoryType) {
     return (
@@ -51,16 +44,7 @@ export default function BrowsePage({ params }) {
     );
   }
 
-  if (animeError) {
-    return (
-      <main className="min-h-screen p-8 text-center text-red-600">
-        Error: {animeError}
-        <Link href="/" className="block mt-4 text-blue-600 hover:underline">
-          Go back home
-        </Link>
-      </main>
-    );
-  }
+  if (animeError) return <ErrorState message={animeError} onRetry={() => window.location.reload()}/>
 
   return (
     <main className="min-h-screen bg-gray-50 dark:bg-gray-600 ">
@@ -126,3 +110,6 @@ export default function BrowsePage({ params }) {
     </main>
   );
 }
+
+export default BrowsePage
+

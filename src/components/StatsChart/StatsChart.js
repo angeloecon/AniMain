@@ -1,7 +1,9 @@
 'use client';
 import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer, Legend } from 'recharts';
 
-export default function StatsChart({ watchlist }) { 
+ 
+
+const StatsChart = ({ watchlist }) => {
   if (!watchlist || watchlist.length === 0) return null;
 
   const watching = watchlist.filter(a => a.status === 'Watching').length;
@@ -69,3 +71,4 @@ export default function StatsChart({ watchlist }) {
     </div>
   );
 }
+export default StatsChart

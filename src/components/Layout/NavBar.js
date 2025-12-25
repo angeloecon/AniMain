@@ -3,10 +3,11 @@ import { useAuth } from "@/context/authContext";
 import { useTheme } from "@/context/themeContext";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import darkLogoName from "../../../public/images/logo_dark.png";
-import logoName from "../../../public/images/logo_light.png";
-import Image from "next/image";
+
 import Link from "next/link";
+import Image from "next/image";
+import logoName from "../../../public/images/logo_light.png";
+import darkLogoName from "../../../public/images/logo_dark.png";
 
 export default function Navbar() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -30,7 +31,7 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="bg-white border-b border-gray-200 dark:border-gray-700 dark:bg-gray-950  sticky top-0 z-50 transition-colors duration-300">
+    <nav className="bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700 sticky top-0 z-50 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           <div className="flex items-center">
@@ -94,17 +95,15 @@ export default function Navbar() {
                   className="text-gray-700 dark:text-gray-200 hover:text-blue-600 font-medium"
                 >
                   <svg 
-  xmlns="http://www.w3.org/2000/svg" 
-  fill="none" 
-  viewBox="0 0 24 24" 
-  strokeWidth={1.5} 
-  stroke="currentColor" 
-  className="w-6 h-6"
->
-  <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 6a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0zm0 6a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0zm0 6a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0zM5.25 6a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0zm0 6a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0zm0 6a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0zM15.75 6a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0zm0 6a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0zm0 6a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0z" />
-  {/* Alternatively, use this path for a rectangular bento look: */}
-  {/* <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6zM3.75 15.75A2.25 2.25 0 016 13.5h2.25a2.25 2.25 0 012.25 2.25V18a2.25 2.25 0 01-2.25 2.25H6A2.25 2.25 0 013.75 18v-2.25zM13.5 6a2.25 2.25 0 012.25-2.25H18A2.25 2.25 0 0120.25 6v12A2.25 2.25 0 0118 20.25h-2.25A2.25 2.25 0 0113.5 18V6z" /> */}
-</svg>
+                    xmlns="http://www.w3.org/2000/svg" 
+                    fill="none" 
+                    viewBox="0 0 24 24" 
+                    strokeWidth={1.5} 
+                    stroke="currentColor" 
+                    className="w-6 h-6"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 6a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0zm0 6a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0zm0 6a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0zM5.25 6a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0zm0 6a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0zm0 6a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0zM15.75 6a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0zm0 6a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0zm0 6a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0z" />
+                  </svg>
                 </Link>
                 <div className="flex items-center space-x-3 pl-4 border-l border-gray-300">
                   <button
@@ -125,7 +124,7 @@ export default function Navbar() {
                 </Link>
                 <Link
                   href="/register"
-                  className="bg-blue-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-blue-700 transition-colors"
+                  className="bg-blue-600 text-white px-4 py-2 rounded-md text-sm font-medium whitespace-nowrap hover:bg-blue-700 transition-colors"
                 >
                   Sign Up
                 </Link>

@@ -8,7 +8,7 @@ import Marquee from "../../components/3dMarquee/3dMarquee";
 import Image from "next/image";
 import Logo from "../../../public/images/ic_main.png";
 
-export default function RegisterPage() {
+const RegisterPage = () => {
   const [email, setEmail] = useState("");
   const [nickname, setNickname] = useState("");
   const [password, setPassword] = useState("");
@@ -249,3 +249,5 @@ export default function RegisterPage() {
     </Marquee>
   );
 }
+
+export default RegisterPage

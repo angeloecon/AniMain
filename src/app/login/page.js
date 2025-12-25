@@ -9,7 +9,7 @@ import Logo from "../../../public/images/ic_main.png";
 import Image from "next/image";
 import Link from "next/link";
 
-export default function LoginPage() {
+const LoginPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
@@ -101,7 +101,7 @@ export default function LoginPage() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
-                  placeholder="senpai@example.com"
+                  placeholder="...@example.com"
                   className="block w-full pl-10 pr-3 py-3 border-none rounded-xl 
                   bg-white/50 dark:bg-black/50 
                   text-gray-900 dark:text-white 
@@ -202,3 +202,5 @@ export default function LoginPage() {
     </Marquee>
   );
 }
+
+export default LoginPage

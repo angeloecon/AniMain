@@ -14,7 +14,7 @@ export async function GET(request) {
   const query = `
     query($search: String, $page: Int, $perPage: Int){
       Page(page: $page, perPage: $perPage) {
-        media(search: $search, type: ANIME, sort: [ SEARCH_MATCH]) {
+        media(search: $search, type: ANIME, sort: SEARCH_MATCH) {
           id
           title {
             romaji

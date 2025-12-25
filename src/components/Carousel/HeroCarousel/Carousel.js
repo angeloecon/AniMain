@@ -1,6 +1,6 @@
 "use client";
 
-import LoadingIndicator from "../../Loading/loadingIndicator";
+import LoadingIndicator from "../../UI/LoadingState/LoadingAnimation";
 import Link from "next/link";
 
 import { Swiper, SwiperSlide } from "swiper/react";

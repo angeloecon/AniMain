@@ -69,7 +69,11 @@ export async function GET(request) {
               coverImage {
                 large
                 medium
+                extraLarge
               }
+              averageScore
+              seasonYear
+              season
             }
           }
         }

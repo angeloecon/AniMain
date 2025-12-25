@@ -2,27 +2,28 @@
 import { useState, useEffect } from "react";
 import { useAuth } from "@/context/authContext";
 import { useRouter } from "next/navigation";
-import StatsChart from "../../components/StatsChart/StatsChart";
+import StatsChart from "@/components/StatsChart/StatsChart";
 import {
   useUserWatchlist,
   updateAnimeProgress,
   deleteAnimeProgress,
 } from "@/lib/watchlist";
+import LoadingState from "@/components/UI/LoadingState/LoadingState"
+import ErrorState from "@/components/UI/ErrorState";
 
-const MENU_ITEMS = ["All", "Watching", "Completed", "Plan to Watch", "Dropped"];
+const dashboardMenu = ["All", "Watching", "Completed", "Plan to Watch", "Dropped"];
 
-export default function DashboardPage() {
+const DashboardPage = () => {
   const [isDeleting, setIsDeleting] = useState(null);
   const [editingId, setEditingId] = useState(null);
   const [newStatus, setNewStatus] = useState("");
   const [filterStatus, setFilterStatus] = useState("All");
+  const [currentPage, setCurrentPage] = useState(1);
 
   const { user, authLoading } = useAuth();
-  const { watchlistData, loading } = useUserWatchlist(user?.uid);
+  const { watchlistData, loading: userDataLoading, error: watchlistError } = useUserWatchlist(user?.uid);
 
   const router = useRouter();
-
-  const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 5;
 
   useEffect(() => {
@@ -75,26 +76,14 @@ export default function DashboardPage() {
 
   const totalPages = Math.ceil(filteredWatchlist.length / itemsPerPage);
 
-  const nextPage = () =>
-    setCurrentPage((prev) => Math.min(prev + 1, totalPages));
+  const nextPage = () => setCurrentPage((prev) => Math.min(prev + 1, totalPages));
   const prevPage = () => setCurrentPage((prev) => Math.max(prev - 1, 1));
 
-  if (authLoading) {
-    return <div>Loading Dashboard...</div>;
-  }
-
-  if (!user) {
-    return <div>Please log in.</div>;
-  }
-
-  if (loading) {
-    return <div>Loading Anime...</div>;
-  }
-
-  if (watchlistData.length === 0) {
-    return <div>No items found.</div>;
-  }
-
+  if ( authLoading ) return <LoadingState message="Loading Dashboard..."/>
+  if ( !user ) return <div className="w-full h-screen flex justify-center items-center">Please log in.</div>;
+  if ( userDataLoading ) return <LoadingState message="Loading Anime..."/>
+  if ( watchlistError ) return <ErrorState message={"We couldn't load your watchlist. It might be a permission issue or network error."} onRetry={() => window.location.reload()}/>
+  
   return (
     <main className=" bg-gray-50 dark:bg-gray-600 p-8">
       <div className="max-w-4xl mx-auto ">
@@ -113,7 +102,7 @@ export default function DashboardPage() {
         <StatsChart watchlist={watchlistData} />
 
         <div className="flex space-x-2 mb-6 overflow-x-auto pb-2 ">
-          {MENU_ITEMS.map((status) => (
+          {dashboardMenu.map((status) => (
             <button
               key={status}
               onClick={() => setFilterStatus(status)}
@@ -166,7 +155,7 @@ export default function DashboardPage() {
                               <select
                                 value={newStatus}
                                 onChange={(e) => setNewStatus(e.target.value)}
-                                className="w-full sm:w-auto px-4 py-1.5 pr-8 border border-blue-500 bg-blue-50 dark:bg-blue-900/20 text-blue-900 dark:text-blue-100 rounded-lg text-sm focus:ring-2 focus:ring-blue-500 outline-none appearance-none font-medium cursor-pointer"
+                                className="w-full sm:w-auto px-4 py-1.5 pr-8 border border-blue-500 bg-blue-50 dark:bg-black/20 text-blue-900 dark:text-white rounded-lg text-sm focus:ring-2 focus:ring-blue-500 outline-none appearance-none font-medium cursor-pointer"
                               >
                                 <option value="Plan to Watch">
                                   Plan to Watch
@@ -195,6 +184,7 @@ export default function DashboardPage() {
                           </div>
                         )}
                         <div className="mt-2 flex items-center gap-1.5 text-xs text-black dark:text-white font-medium">
+                          
                           {/* (Calendar icon) */}
                           <svg
                             className="w-3.5 h-3.5 opacity-70"
@@ -209,7 +199,7 @@ export default function DashboardPage() {
                               d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
                             />
                           </svg>
-                          {/* (Date Text) */}
+
                           <span>
                             Added{" "}
                             {item.addedAt
@@ -339,3 +329,5 @@ export default function DashboardPage() {
     </main>
   );
 }
+
+export default DashboardPage
