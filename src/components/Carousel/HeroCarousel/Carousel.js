@@ -35,7 +35,7 @@ const Carousel = ({ data, isLoading }) => {
       loop={true}
       parallax={true}
       speed={2500}
-      className={`h-[50vh] lg:h-[70vh]`}
+      className={`h-[70vh]`}
     >
       {data.map((value, index) => {
         return (
