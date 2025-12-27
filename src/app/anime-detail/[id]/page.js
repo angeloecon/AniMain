@@ -1,5 +1,5 @@
 "use client";
-import { AnimeRecommend, AnimeCharacters, AnimeTrailer, AnimeSummary } from '@/components/AnimeDetails/OverView'
+import { AnimeRecommend, AnimeCharacters, AnimeTrailer, AnimeSummary, AnimeStreaming } from '@/components/AnimeDetails/OverView'
 import { useParams } from "next/navigation";
 import { useAnimeDetail } from "@/hooks/useAnime";
 import { useAuth } from "@/context/authContext";
@@ -120,6 +120,7 @@ const AnimeDetailPage = () => {
               animeId={anime.trailer?.id}
               animeSource={anime.trailer?.site}
             />
+            <AnimeStreaming externalLinks={anime.externalLinks} />
             <AnimeRecommend anime={anime.recommendations.nodes} />
           </div>
         </div>

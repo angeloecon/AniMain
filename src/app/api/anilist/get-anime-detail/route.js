@@ -77,6 +77,18 @@ export async function GET(request) {
             }
           }
         }
+        externalLinks {
+          siteId
+          site
+          color
+          icon
+          id
+          url
+          type
+          language
+          isDisabled
+          notes
+        }
       }
     }
   `;

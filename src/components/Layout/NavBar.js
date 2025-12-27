@@ -36,7 +36,7 @@ export default function Navbar() {
         <div className="flex justify-between h-16">
           <div className="flex items-center">
             <Link href="/" className="flex items-center gap-2">
-              <div className="flex justify-center items-center w-36 h-18">
+              <div className="flex justify-center items-center w-36 h-18d">
                 <Image
                   src={theme === 'dark' ? (darkLogoName) : (logoName)}
                   alt="onlyWeebs Logo"
