@@ -6,6 +6,7 @@ import { useAnimeSearch } from "@/hooks/useAnime";
 import Link from "next/link";
 import LoadingIndicator from "@/components/UI/LoadingState/LoadingAnimation";
 import ParallaxCard from "@/components/Card/ParallaxCard/ParallaxCard";
+import LoadingState from "@/components/UI/LoadingState/LoadingState";
 
 const SearchContent = () => {
   const searchParams = useSearchParams();
@@ -25,17 +26,8 @@ const SearchContent = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  if (isLoading) {
-    return (
-      <main className="h-screen bg-gray-50 dark:bg-gray-600 flex justify-center flex-col items-center">
-        <LoadingIndicator size={150} />
-        <p className="mt-1 text-sm text-gray-400 animate-pulse">
-          Searching for {query}...
-        </p>
-      </main>
-    );
-  }
-
+  if (isLoading) return <LoadingState message={`Searching for ${query}...`}/>
+  
   if (animeData.length === 0 && !isLoading) {
     return (
       <main className="h-screen bg-gray-50 dark:bg-gray-600 flex justify-center flex-col items-center">

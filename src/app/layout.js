@@ -24,8 +24,16 @@ const animeFonts = localFont({
 });
 
 export const metadata = {
-  title: "Anime Watchlist",
-  description: "Track and manage your favorite anime series with ease.",
+  title: {
+    default: "AniMain",
+    template: "%s | AniMain"
+  },
+  description: "The best place to track and watch your favorite anime.",
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    siteName: "AniMain"
+  }
 };
 
 export default function RootLayout({ children }) {

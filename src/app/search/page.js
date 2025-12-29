@@ -1,17 +1,15 @@
 import { Suspense } from "react";
 import SearchContent from "./SearchContent";
+import LoadingState from "@/components/UI/LoadingState/LoadingState";
 
-function SearchFallback() {
-  return (
-    <main className="h-screen bg-gray-50 dark:bg-gray-600 flex justify-center flex-col items-center">
-      <div className="animate-pulse">Loading...</div>
-    </main>
-  );
-}
+export const metadata = {
+  title: "Search Results", 
+  description: "Find your favorite anime."
+};
 
 export default function SearchResultPage() {
   return (
-    <Suspense fallback={<SearchFallback />}>
+    <Suspense fallback={<LoadingState message="Loading..."/>}>
       <SearchContent />
     </Suspense>
   );
