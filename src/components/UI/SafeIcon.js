@@ -31,6 +31,7 @@ const SafeIcon = ({ link, alt, h, w, className }) => {
       alt={alt}
       height={h}
       width={w}
+      loading="lazy"
       className={`object-contain ${className}`}
       onError={() => setIsBroken(true)}
     />

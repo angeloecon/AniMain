@@ -9,6 +9,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/parallax";
+import { RightArrowIcon, SmileIcon, TrophyIcon } from "../Icons";
 
 const AllTimeTopAnime = ({ data }) => {
   
@@ -90,18 +91,7 @@ const AllTimeTopAnime = ({ data }) => {
                       }`}
                     >
                       {/* Trophy Icon SVG/ pangit failed svg/ TEMPO*/}
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 24 24"
-                        fill="currentColor"
-                        className="w-5 h-5"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M5.166 2.621v.858c-1.035.148-2.059.33-3.071.543a.75.75 0 00-.584.859 6.753 6.753 0 006.138 5.625h1.92a6.753 6.753 0 006.138-5.625.75.75 0 00-.584-.859c-1.012-.214-2.036-.395-3.071-.543V2.62a.75.75 0 00-.75-.75h-5.25a.75.75 0 00-.75.75zm-2.702 8.426a8.25 8.25 0 0119.073 0 1.5 1.5 0 01-1.66 1.708 7.48 7.48 0 00-6.101 2.973 11.233 11.233 0 01-1.78.694V19.5h3.402a.75.75 0 01.53 1.28l-3.374 3.375a.75.75 0 01-1.06 0l-3.375-3.375a.75.75 0 01.53-1.28h3.402v-3.078a11.233 11.233 0 01-1.78-.694 7.48 7.48 0 00-6.101-2.973 1.5 1.5 0 01-1.66-1.708z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
+                      <TrophyIcon/>
                       Top {index + 1}
                     </span>
                   ) : (
@@ -119,18 +109,7 @@ const AllTimeTopAnime = ({ data }) => {
                     data-swiper-parallax-opacity="0.6"
                   >
                     {/* :) */}
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 24 24"
-                      fill="currentColor"
-                      className="w-5 h-5 text-green-300"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zM9 9a.75.75 0 01.75-.75h.008a.75.75 0 01.75.75v.008a.75.75 0 01-.75.75H9.75a.75.75 0 01-.75-.75V9zm5.25-.75a.75.75 0 01.75.75v.008a.75.75 0 01-.75.75h-.008a.75.75 0 01-.75-.75V9a.75.75 0 01.75-.75h.008zM12 16.5a4.5 4.5 0 01-3.666-1.928.75.75 0 111.228-.885 3 3 0 004.876 0 .75.75 0 111.228.885A4.5 4.5 0 0112 16.5z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
+                    <SmileIcon className="w-5 h-5 text-green-300"/>
                     {value.averageScore ? `${value.averageScore}%` : "New"}
                   </span>
 
@@ -151,20 +130,7 @@ const AllTimeTopAnime = ({ data }) => {
                     data-swiper-parallax-opacity="0.6"
                   >
                     See More
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      strokeWidth={2.5}
-                      stroke="currentColor"
-                      className="w-4 h-4 transition-transform group-hover:translate-x-1"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
-                      />
-                    </svg>
+                    <RightArrowIcon className="w-4 h-4 transition-transform group-hover:translate-x-1"/>
                   </Link>
                 </div>
               </div>

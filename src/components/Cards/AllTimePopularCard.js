@@ -1,15 +1,28 @@
- import Link from "next/link";
+import Link from "next/link";
+import Image from "next/image";
 
-const AllTimePopularCard = ({ animeId, animeImage, animeTitle, animeScore, animeSeason, animeYear }) => {
+const AllTimePopularCard = ({
+  animeId,
+  animeImage,
+  animeTitle,
+  animeScore,
+  animeSeason,
+  animeYear,
+}) => {
   return (
     <Link href={`/anime-detail/${animeId}`}>
       <div className="relative w-full group">
         <div className="relative aspect-[2/3] overflow-hidden rounded-lg shadow-sm transition-all duration-300 group-hover:shadow-xl group-hover:-translate-y-1">
-          <img
+ 
+          <Image
             src={animeImage}
             alt={animeTitle}
-            className="h-full w-full object-cover"
+            fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            loading="lazy"
+            priority={false}
           />
+          
           {animeScore && (
             <div
               className={`absolute top-2 right-2 px-1.5 py-0.5 rounded text-[10px] font-bold text-white shadow-sm ${

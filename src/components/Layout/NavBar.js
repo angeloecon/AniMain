@@ -41,7 +41,7 @@ const Navbar = () => {
               <div className="flex justify-center items-center w-36 h-18d">
                 <Image
                   src={theme === 'dark' ? (darkLogoName) : (logoName)}
-                  alt="onlyWeebs Logo"
+                  alt="Animain Logo"
                   priority
                 />
               </div>

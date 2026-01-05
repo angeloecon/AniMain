@@ -58,7 +58,7 @@ export default function TopAnimeSlider({ data }) {
                 <Card
                   title={anime.title.english || anime.title.romaji}
                   content={anime.title.romaji || anime.title.english || ""}
-                  image={anime.coverImage.extraLarge}
+                  image={anime.coverImage.extraLarge || anime.coverImage.large}
                 />
               </div>
             </Link>

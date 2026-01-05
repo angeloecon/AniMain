@@ -58,9 +58,9 @@ const page = async ({ params }) => {
     "startDate": `${anime.startDate.year}-${anime.startDate.month}-${anime.startDate.day}`,
     "aggregateRating": {
       "@type": "AggregateRating",
-      "ratingValue": anime.averageScore ? (anime.averageScore / 10).toFixed(1) : "0", // Convert 85 to 8.5
+      "ratingValue": anime.averageScore ? (anime.averageScore / 10).toFixed(1) : "0",  
       "bestRating": "10",
-      "ratingCount": anime.popularity // Use popularity as a proxy for vote count
+      "ratingCount": anime.popularity  
     }
   };
 
@@ -92,7 +92,6 @@ const page = async ({ params }) => {
               alt={anime.title.english || anime.title.romaji}
               width={260}
               height={370}
-              priority={false}
               className="w-64 h-auto rounded-lg mb-4 shadow-2xl border-4 border-gray-900 dark:border-gray-200 object-cover bg-gray-100 dark:bg-gray-900"
             />
 
