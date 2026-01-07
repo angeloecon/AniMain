@@ -1,5 +1,5 @@
 const sitemap = async () => {
-  const baseUrl = "https://animain.vercel.app/dashboard";
+  const baseUrl = "https://animain.vercel.app";
 
   const routes = ["", "/search", "/dashboard"].map((route) => ({
     url: `${baseUrl}${route}`,
@@ -18,7 +18,7 @@ const sitemap = async () => {
       body: JSON.stringify({
         query: `
           query {
-            Page(page: 1, perPage: 20) {
+            Page(page: 1, perPage: 25) {
               media(sort: TRENDING_DESC, type: ANIME) {
                 id
                 updatedAt
