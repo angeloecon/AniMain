@@ -58,7 +58,7 @@ const Footer = () => {
               <div className="w-26 ">
                 <Image
                   src={theme === "dark" ? darkLogoName : logoName}
-                  alt="aniMain Logo"
+                  alt="AniMain"
                   className="object-contain block"
                 />
               </div>

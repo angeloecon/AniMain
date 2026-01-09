@@ -31,6 +31,15 @@ export const metadata = {
     template: "%s | AniMain"
   },
   description: "The best place to track and watch your favorite anime.",
+  icons: {
+    icon: '/favicon.ico',
+    shorcut: '/icons/android-chrome-192x192.png',
+    apple: '/icons/apple-touch-icon.png',
+    other: {
+      rel: 'manifest',
+      url: '/icons/site.webmanifest'
+    }
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
