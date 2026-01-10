@@ -30,7 +30,9 @@ export const metadata = {
     default: "AniMain",
     template: "%s | AniMain"
   },
-  description: "The best place to track and watch your favorite anime.",
+  description:`Your ultimate destination for discovering, tracking, and managing
+              your favorite anime series. Join our community of anime
+              enthusiasts today.`,
   icons: {
     icon: '/favicon.ico',
     shorcut: '/icons/android-chrome-192x192.png',
